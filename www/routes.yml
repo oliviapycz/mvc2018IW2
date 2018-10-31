@@ -1,0 +1,11 @@
+"/":
+  controller: Pages
+  action: default
+
+"/creation_de_compte":
+  controller: Users
+  action: add
+
+"/liste_des_utilisateurs":
+  controller: Users
+  action: default

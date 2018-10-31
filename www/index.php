@@ -12,18 +12,16 @@ $slug = $_SERVER["REQUEST_URI"];
 $slugExploded = explode("?", $slug);
 $slug = $slugExploded[0];
 
+require "core/Routing.class.php";
+//Récupère la route correspondant au slug
+$route = Routing::getRoute($slug);
+if(is_null($route)){
+	die("L'url n'existe pas");
+}
+//Transforme un tableau en une multitude de variable prenant pour nom les clés
+extract($route);
 
-//logique de routing initiale
-//http://localhost/users/add
-//$users->add();
 
-
-//Découper l'url pour distinguer le controller et l'action
-$slugExploded = explode("/", trim($slug, "/"));
-//J'ai donc deux variables $c et $a avec si besoin les controllers par defaut
-$c = ucfirst( (!empty($slugExploded[0]))?$slugExploded[0]:"pages" )."Controller";
-$a = ((isset($slugExploded[1]))?$slugExploded[1]:"default")."Action";
-$cPath = "controllers/".$c.".class.php";
 //Vérifier que le fichier et la class controller existe
 if( file_exists($cPath) ){
 	include $cPath;
