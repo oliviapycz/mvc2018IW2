@@ -3,7 +3,11 @@ class PagesController{
 
 
 	public function defaultAction(){
-		echo "Page default";
+
+		$pseudo = "Prof";
+
+		$v = new View("homepage", "front");
+		$v->assign("pseudo",$pseudo);
 	}
 
 }

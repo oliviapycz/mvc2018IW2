@@ -1,5 +1,17 @@
 <?php
 
+function myAutoloader($class){
+	$pathCore = "core/".$class.".class.php";
+	//est ce que la class que l'on essaye d'instancier existe dans
+	//le dossier core
+	if( file_exists($pathCore) ){
+		include $pathCore;
+	}
+}
+//Appel la fonction myAutoloader si on essaye une instance d'une class
+//qui n'existe pas
+spl_autoload_register("myAutoloader");
+
 //Comment faire pour récupérer le slug
 //Utilisation de la variable super globale SERVER
 //c'est une variable créée par le server et alimenté
@@ -12,7 +24,7 @@ $slug = $_SERVER["REQUEST_URI"];
 $slugExploded = explode("?", $slug);
 $slug = $slugExploded[0];
 
-require "core/Routing.class.php";
+
 //Récupère la route correspondant au slug
 $route = Routing::getRoute($slug);
 if(is_null($route)){
