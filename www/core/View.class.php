@@ -3,7 +3,7 @@ class View{
 
 	private $v;
 	private $t;
-	private $data;
+	private $data = [];
 
 	public function __construct($v, $t="back"){
 		$this->setView($v);

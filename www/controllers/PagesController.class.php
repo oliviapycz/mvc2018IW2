@@ -6,7 +6,7 @@ class PagesController{
 
 		$pseudo = "Prof";
 
-		$v = new View("homepage", "front");
+		$v = new View("homepage", "back");
 		$v->assign("pseudo",$pseudo);
 	}
 
