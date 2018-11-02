@@ -11,8 +11,9 @@ class Routing{
 		if( !empty($routes[$slug]) ){
 
 			//On vérifie qu'il n'y a pas une mauvaise écrite des routes dans le fichier
-			if(empty($routes[$slug]["controller"]) || empty($routes[$slug]["action"]))
+			if(empty($routes[$slug]["controller"]) || empty($routes[$slug]["action"])){
 				die("Il y a une erreur dans le routes.yml");
+			}
 
 			//Ajout des suffixes
 			$c = ucfirst( $routes[$slug]["controller"] )."Controller";
@@ -21,11 +22,24 @@ class Routing{
 			$cPath = "controllers/".$c.".class.php";
 
 		}else{
-			//Aucune route ne correspond
+			//Aucune route ne correspondx
 			return null;
 		}
 
 		return ["c"=>$c,"a"=>$a,"cPath"=>$cPath];
 	}
 
+
+
+	public static function getSlug($c=null, $a=null){
+
+
+		return $slug;
+	}
+
+
+
+
 }
+
+
