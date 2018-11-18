@@ -1,14 +1,17 @@
-# mvc2018IW2
+# Views
 
-## Installation:
-* cloner le projet 
-* dans un terminal depuis le dossier cloné :
-``` bash
-# create image and build container
-docker-compose up -d
-```
-> in the browser: localhost
+## Goals:
+* create templates
+* create different views
 
-## Organisation:
-* différentes branches pour travailler et réviser
-* la branche master sera toujours l'avancé du cours à son dernier terme
+## What we've learned:
+* use __construct()
+* use __destruct()
+* include views in template
+* set different templates (back and front)
+
+## Steps:
+* create folder views with folder templates inside
+* create different templates
+* create different views at the root of views
+* add public folder at the root of www which will contain css js assets vendor etc

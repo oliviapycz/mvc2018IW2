@@ -4,7 +4,7 @@ class PagesController{
 
 	public function defaultAction(){
 
-		$pseudo = "Prof";
+		$pseudo = "oliviapycz";
 
 		$v = new View("homepage", "back");
 		$v->assign("pseudo",$pseudo);
