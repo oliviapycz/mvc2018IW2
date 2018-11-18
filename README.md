@@ -7,6 +7,7 @@
 ## What we've learned:
 * use __construct()
 * use __destruct()
+* create different views
 * include views in template
 * set different templates (back and front)
 
