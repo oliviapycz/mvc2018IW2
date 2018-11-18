@@ -10,19 +10,13 @@ class UsersController{
 	public function addAction(){
 	
 
-		$v = new View("addUser", "front");
+		echo "User add";
 		
 	}
 
 	public function loginAction(){
 	
-		$v = new View("loginUser", "front");
-		
-	}
-
-	public function forgetPasswordAction(){
-
-		$v = new View("forgetPasswordUser", "front");
+		echo "User login";
 		
 	}
 
