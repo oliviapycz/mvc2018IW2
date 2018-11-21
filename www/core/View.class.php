@@ -29,10 +29,14 @@ class View{
 	}
 
 	public function assign($key, $value){
+		// on donne une clé et une valeur
+		// vient alimenter un tableau php qui s'appelle data
 		$this->data[$key]=$value;
 	}
 
 	public function __destruct(){
+		// appelé à la fin de tous process
+		// tous les classes instanciées sont détruites
 		extract($this->data);
 		include $this->t;
 	}
