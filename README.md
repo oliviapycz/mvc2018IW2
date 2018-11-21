@@ -17,4 +17,4 @@
 * update myAutoLoader to include files in folder models
 * 
 
-![VISUEL](https://github.com/oliviapycz/mvc2018IW2/raw/master/screenshot_table.png)
+![VISUEL](https://github.com/oliviapycz/mvc2018IW2/raw/model/screenshot_table.png)
