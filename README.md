@@ -1,8 +1,8 @@
 # Views
 
 ## Goals:
-* create templates
-* create different views
+* create models
+* configure Users table on phpmyadmin
 
 ## What we've learned:
 * use __construct()
@@ -12,7 +12,9 @@
 * set different templates (back and front)
 
 ## Steps:
-* create folder views with folder templates inside
-* create different templates
-* create different views at the root of views
-* add public folder at the root of www which will contain css js assets vendor etc
+* create folder models inside folder www
+* create file Users.class.php inside of it with the class Users
+* update myAutoLoader to include files in folder models
+* 
+
+![VISUEL](https://github.com/oliviapycz/mvc2018IW2/raw/model/screenshot_table.png.png)

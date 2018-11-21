@@ -1,13 +1,17 @@
 <?php
 
 function myAutoloader($class){
-	$pathCore = "core/".$class.".class.php";
 	//est ce que la class que l'on essaye d'instancier existe dans
 	//le dossier core
+	$pathCore = "core/".$class.".class.php";
+	$pathModels = "models/".$class.".class.php";
 	if( file_exists($pathCore) ){
 		include $pathCore;
+	}else if ( file_exists($pathModels) ){
+		include $pathModels;
 	}
 }
+
 //Appel la fonction myAutoloader si on essaye une instance d'une class
 //qui n'existe pas
 spl_autoload_register("myAutoloader");
