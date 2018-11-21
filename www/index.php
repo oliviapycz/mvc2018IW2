@@ -1,5 +1,7 @@
 <?php
 
+// Permet dynamiquement d'inclure 
+// le fichier de la classe que l'on essaye d'instancier
 function myAutoloader($class){
 	$pathCore = "core/".$class.".class.php";
 	//est ce que la class que l'on essaye d'instancier existe dans
@@ -8,6 +10,11 @@ function myAutoloader($class){
 		include $pathCore;
 	}
 }
+// spl_autoload_register est appelé automatiquement
+// a chaque instance de class
+// ex: $objet = new User() -> on a besoin de la class User donc d'appeler
+// le fichier core/Users.class.php
+// l'autolad va inclure le fichier
 //Appel la fonction myAutoloader si on essaye une instance d'une class
 //qui n'existe pas
 spl_autoload_register("myAutoloader");
