@@ -1,21 +1,25 @@
 <?php
 
-class Users{
+class Users extends BaseSQL {
 
-  private $id;
-  private $firstname;
-  private $lastname;
-  private $email;
-  private $pwd;
-  private $status = 0;
-  private $role = 1;
+  public $id;
+  public $firstname;
+  public $lastname;
+  public $email;
+  public $pwd;
+  public $status = 0;
+  public $role = 1;
 
   public function __construct(){
-
+    // permet d'appeler le construct de la classe BaseSQL
+    parent::__construct();
   }
+
   // l'interet des setters est de pouvoir formatter les donner
-  public function setId(){
+  public function setId($id){
     $this->id=$id;
+    //Alimentation de l'objet (this) depuis la bdd ou l'id correspond
+    $this->getOneBy(["id"=>$id]);
   }
 
   public function setFirstname($firstname){
@@ -30,7 +34,7 @@ class Users{
   }
 
   public function setEmail($email){
-    $this->email=strtoupper(trim($email));
+    $this->email=strtolower(trim($email));
   }
 
   public function setPwd($pwd){

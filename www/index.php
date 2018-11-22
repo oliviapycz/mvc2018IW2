@@ -1,5 +1,7 @@
 <?php
 
+require "conf.inc.php";
+
 function myAutoloader($class){
 	//est ce que la class que l'on essaye d'instancier existe dans
 	//le dossier core

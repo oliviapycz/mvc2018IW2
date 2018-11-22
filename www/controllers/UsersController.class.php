@@ -10,12 +10,14 @@ class UsersController{
 	public function addAction(){
 	
 		$user = new Users();
-		$user->setEmail("oliviapycz@gmail.com")
-		$user->setFirstname("olivia")
-		$user->setLastname("pycz")
-		$user->setPassword("password123")
+
+		$user->setId(1);
+		// $user->setEmail("oliviapycz@gmail.com");
+		// $user->setFirstname("olivia");
+		$user->setLastname("PY COBLENTZ");
+		// $user->setPwd("password123");
 		$user->save();
-		
+
 		$v = new View("addUser", "front");
 		
 	}
