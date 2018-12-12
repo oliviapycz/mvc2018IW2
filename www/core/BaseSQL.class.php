@@ -58,7 +58,7 @@ class BaseSQL {
     }
   }
   // de type $where=["id"=>3, "email"=>"olivia@gmail.com"]
-  public function getOneBy($where){
+  public function getOneBy(array $where, $object = false){
     $columns = $this->getColumns();     
 
     foreach ($where as $key => $value) {
@@ -68,12 +68,18 @@ class BaseSQL {
       WHERE ".implode(" AND ", $sqlWhere)."";
       echo $sql;
       $query = $this->pdo->prepare($sql);
+      if ($object) {
+        // modifie l'instance en cours
+        // remplit $this avec les valeurs de la bdd
+        // avant de modifier les champs dans le update
+        // prend object existant et écrase les valeurs avec les valeurs de la base
+        $query->setFetchMode(PDO::FETCH_INTO, $this);
+      } else {
+        $query->setFetchMode(PDO::FETCH_ASSOC);
+      }
       $query->execute( $where );
-      // modifie l'instance en cours
-      // remplit $this avec les valeurs de la bdd
-      // avant demodifier les champs dans le update
-      $query->setFetchMode(PDO::FETCH_INTO, $this);
-      $query->fetch();
+      // fetch() retourne le 1er résultat != fetchAll()
+      return $query->fetch();
   }
 
 }

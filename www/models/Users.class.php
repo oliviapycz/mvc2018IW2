@@ -19,7 +19,7 @@ class Users extends BaseSQL {
   public function setId($id){
     $this->id=$id;
     //Alimentation de l'objet (this) depuis la bdd ou l'id correspond
-    $this->getOneBy(["id"=>$id]);
+    $this->getOneBy(["id"=>$id], true);
   }
 
   public function setFirstname($firstname){
