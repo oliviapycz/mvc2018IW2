@@ -45,6 +45,8 @@ class BaseSQL {
       $query->execute( $columns );
     }else{
       # UPDATE
+      // pour ne pas écraser tous les champs par l'update
+      // quand on setId la fonction getOneBy se lance et remplit tous les champs
       foreach ($columns as $key => $value) {
         $sqlSet[] = "".$key." =:".$key."";
       }
@@ -55,7 +57,7 @@ class BaseSQL {
       $query->execute( $columns );
     }
   }
-  // de type $where=["id"=>3]
+  // de type $where=["id"=>3, "email"=>"olivia@gmail.com"]
   public function getOneBy($where){
     $columns = $this->getColumns();     
 
@@ -67,6 +69,9 @@ class BaseSQL {
       echo $sql;
       $query = $this->pdo->prepare($sql);
       $query->execute( $where );
+      // modifie l'instance en cours
+      // remplit $this avec les valeurs de la bdd
+      // avant demodifier les champs dans le update
       $query->setFetchMode(PDO::FETCH_INTO, $this);
       $query->fetch();
   }

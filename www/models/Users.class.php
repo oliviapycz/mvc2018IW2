@@ -2,7 +2,7 @@
 
 class Users extends BaseSQL {
 
-  public $id;
+  public $id = null;
   public $firstname;
   public $lastname;
   public $email;
