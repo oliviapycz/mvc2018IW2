@@ -49,5 +49,55 @@ class Users extends BaseSQL {
   public function setRole($role){
     $this->role=$role;
   }
+
+  public function getFormRegister(){
+    return [
+      "config"=>[
+        "method"=>"POST",
+        "action"=>Routing::getSlug("Users", "save"),
+        "class"=>"",
+        "id"=>"",
+        "reset"=>"Annuler",
+        "submit"=>"S'enregistrer"
+      ],
+      "data"=>[
+        "firstname"=>[
+          "type"=>"text",
+          "placeholder"=>"Votre prénom",
+          "class"=>"form-control",
+          "id"=>"firstname",
+          "required"=> true
+        ],
+        "lastname"=>[
+          "type"=>"text",
+          "placeholder"=>"Votre nom",
+          "class"=>"form-control",
+          "id"=>"lastname",
+          "required"=> true
+        ],
+        "email"=>[
+          "type"=>"text",
+          "placeholder"=>"Votre email",
+          "class"=>"form-control",
+          "id"=>"email",
+          "required"=> true
+        ],
+        "pwd"=>[
+          "type"=>"text",
+          "placeholder"=>"Votre mot de passe",
+          "class"=>"form-control",
+          "id"=>"pwd",
+          "required"=> true
+        ],
+        "pwdConfirm"=>[
+          "type"=>"text",
+          "placeholder"=>"Retapez votre mot de passe",
+          "class"=>"form-control",
+          "id"=>"pwdConfirm",
+          "required"=> true
+        ]
+      ]
+    ];
+  }
   
 }

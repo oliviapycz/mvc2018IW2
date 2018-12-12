@@ -22,7 +22,7 @@ class Routing{
 			$cPath = "controllers/".$c.".class.php";
 
 		}else{
-			//Aucune route ne correspondx
+			//Aucune route ne corresponds
 			return null;
 		}
 

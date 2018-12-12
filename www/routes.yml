@@ -6,6 +6,10 @@
   controller: Users
   action: add
 
+"/enregistrement_de_compte":
+  controller: Users
+  action: save
+
 "/connexion":
   controller: Users
   action: login

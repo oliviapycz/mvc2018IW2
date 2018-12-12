@@ -19,7 +19,13 @@ class UsersController{
 		$user->save();
 
 		$v = new View("addUser", "front");
-		
+		$v->assign("configFormRegister", $user->getFormRegister());
+	}
+
+	public function saveAction(){
+
+		//
+
 	}
 
 	public function loginAction(){

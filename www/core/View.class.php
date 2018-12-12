@@ -28,6 +28,15 @@ class View{
 		}
 	}
 
+	public function addModal($modal, $config){
+		$pathModal = "views/modals/".$modal.".mod.php";
+		if(file_exists($pathModal)){
+			include $pathModal;	
+		}else{
+			die("Le modal n'existe pas :".$pathModal);
+		}
+	}
+
 	public function assign($key, $value){
 		// on donne une clé et une valeur
 		// vient alimenter un tableau php qui s'appelle data
