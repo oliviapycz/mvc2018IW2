@@ -17,7 +17,7 @@ class BaseSQL {
       die(" Erreur SQL : ".$e->getMessage());
     }
     // récuperer le nom de la class qui est aussi le nom de la table
-    //on prcède dans le constructeur car on aura besoin de cette variable partout
+    //on procède dans le constructeur car on aura besoin de cette variable partout
     $this->table = get_called_class();
   }
 
@@ -27,6 +27,7 @@ class BaseSQL {
     // on récupère seulement les variables du parent
     $classVars = get_class_vars( get_class() );
     // on compare les 2 tableaux récupérés
+    // pour ne garder que les éléments communs (ni pdo, ni table du parent)
     $columns = array_diff_key($objectVars, $classVars);
     return $columns;
     
