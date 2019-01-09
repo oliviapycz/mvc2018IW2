@@ -3,6 +3,14 @@
   $data = ($config['config']['method'] == "POST")? $_POST: $_GET;
 ?>
 
+<?php if(isset($config['errors'])):?>
+  <div class="alert alert-danger">
+  <?php foreach ($config['errors'] as $error):?>
+    <li><?php echo $error;?></li>
+  <?php endforeach;?>
+  </div>
+<?php endif;?>
+
 <form method="<?php echo $config['config']['method'];?>"
       action="<?php echo $config['config']['action'];?>"
       id="<?php echo $config['config']['id'];?>"

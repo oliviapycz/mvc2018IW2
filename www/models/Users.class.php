@@ -66,35 +66,48 @@ class Users extends BaseSQL {
           "placeholder"=>"Votre prénom",
           "class"=>"form-control",
           "id"=>"firstname",
-          "required"=> true
+          "required"=>true,
+          "minlength"=>2,
+          "maxlength"=>50,
+          "error"=>"Votre prénom doit faire entre 2 et 50 caractères"
         ],
         "lastname"=>[
           "type"=>"text",
           "placeholder"=>"Votre nom",
           "class"=>"form-control",
           "id"=>"lastname",
-          "required"=> true
+          "required"=> true,
+          "minlength"=>2,
+          "maxlength"=>100,
+          "error"=>"Votre nom doit faire entre 2 et 100 caractères"
         ],
         "email"=>[
           "type"=>"text",
           "placeholder"=>"Votre email",
           "class"=>"form-control",
           "id"=>"email",
-          "required"=> true
+          "required"=> true,
+          "minlength"=>7,
+          "maxlength"=>250,
+          "error"=>"Votre emailn'est pas correct ou fait plus de 250 caractères"
         ],
         "pwd"=>[
           "type"=>"text",
           "placeholder"=>"Votre mot de passe",
           "class"=>"form-control",
           "id"=>"pwd",
-          "required"=> true
+          "required"=> true,
+          "minlength"=>6,
+          "error"=>"Votre mot de passe doit faire plus de 6 caractères avec des minuscules, majuscules et des chiffres"
         ],
         "pwdConfirm"=>[
           "type"=>"text",
           "placeholder"=>"Retapez votre mot de passe",
           "class"=>"form-control",
           "id"=>"pwdConfirm",
-          "required"=> true
+          "required"=> true,
+          "confirm"=>"pwd",
+          "error"=>"Le mot de passe ne correspond pas"
         ]
       ]
     ];
